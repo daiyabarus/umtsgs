@@ -389,7 +389,7 @@ def license_col():
     }
 
 
-def nodeblocalcell():
+def nodeblocalcell_col():
     return {
         "NodeId": 0,
         "NodeBFunctionId": 1,
@@ -491,7 +491,22 @@ def nodeblocalcell():
     }
 
 
-def nodebsector_col():
+def nodebsectorcarrier_col():
+    return {
+        "NodeId": 0,
+        "NodeBFunctionId": 1,
+        "NodeBLocalCellGroupId": 2,
+        "NodeBLocalCellId": 3,
+        "NodeBSectorCarrierId": 4,
+        "cellRange": 5,
+        "eulMaxOwnUuLoad": 6,
+        "eulMaxRotCoverage": 7,
+        "eulNoiseFloorLock": 8,
+        "eulThermalLevelPrior": 9,
+    }
+
+
+def nodebfunction_col():
     return {
         "NodeId": 0,
         "NodeBFunctionId": 1,

@@ -1,4 +1,6 @@
-def gs_nodeblocalcell(txt_data: list, gslist_data: list, dt_col: dict, moc: str):
+def gs_nodeblocalcell_process(
+    txt_data: list, gslist_data: list, dt_col: dict, moc: str
+):
     gs_result = []
 
     for raw_data in txt_data:
@@ -7,7 +9,7 @@ def gs_nodeblocalcell(txt_data: list, gslist_data: list, dt_col: dict, moc: str)
 
         u_data = str(raw_data).split()
         NodeId = u_data[dt_col.get("NodeId", 0)]
-        NodeBLocalCellId = u_data[dt_col.get("NodeBLocalCellId", 2)]
+        NodeBLocalCellId = u_data[dt_col.get("NodeBLocalCellId", 3)]
 
         for gs_data in gslist_data:
             param = gs_data[0]

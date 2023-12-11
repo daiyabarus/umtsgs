@@ -1,4 +1,3 @@
-# INFO: update
 def gs_eutran():
     return [
         ("cellReselectionPriority", "SUFFIX"),
@@ -10,7 +9,6 @@ def gs_eutran():
     ]
 
 
-# INFO: update
 def gs_hsdsch():
     return [
         ("administrativeState", "UNLOCKED"),
@@ -37,7 +35,6 @@ def gs_hsdsch():
     ]
 
 
-# INFO: update
 def gs_eul():
     return [
         ("administrativeState", "UNLOCKED"),
@@ -70,7 +67,6 @@ def gs_pch():
     ]
 
 
-# INFO: ok
 def gs_fach():
     return [
         ("administrativeState", "UNLOCKED"),
@@ -82,7 +78,6 @@ def gs_fach():
     ]
 
 
-# INFO: update
 def gs_rach():
     return [
         ("administrativeState", "UNLOCKED"),
@@ -235,7 +230,7 @@ def gs_utrancell():
         ("loadBasedHoSupport", "FALSE"),
         ("loadSharingGsmFraction", "100"),
         ("loadSharingGsmThreshold", "90"),
-        ("loadSharingMargin", "20"),
+        ("loadSharingMargin", "SUFFIX"),
         ("maximumTransmissionPower", "478"),
         ("maxPwrMax", "48"),
         ("maxRate", "40690"),
@@ -253,11 +248,11 @@ def gs_utrancell():
         ("pwrLoadThresholdDlSpeech.amr5900", "100"),
         ("pwrLoadThresholdDlSpeech.amr7950", "100"),
         ("pwrLoadThresholdDlSpeech.amrWb12650", "100"),
-        ("qHyst1", "8"),
+        ("qHyst1", "SUFFIX"),
         ("qHyst2", "4"),
         ("qQualMin", "-24"),
-        ("qRxLevMin", "-115"),
-        ("qualMeasQuantity", "CPICH_EC_NO"),
+        ("qRxLevMin", "SUFFIX"),
+        ("qualMeasQuantity", "SUFFIX"),
         ("rateSelectionPsInteractive.dlPrefRate", "16"),
         ("rateSelectionPsInteractive.channelType", "DCH"),
         ("rateSelectionPsInteractive.ulPrefRate", "16"),
@@ -288,7 +283,7 @@ def gs_utrancell():
         ("sf8AdmUl", "0"),
         ("sf8gAdmUl", "0"),
         ("sHcsRat", "-105"),
-        ("sInterSearch", "17"),
+        ("sInterSearch", "SUFFIX"),
         ("sIntraSearch", "0"),
         ("sRatSearch", "0"),
         ("standAloneSrbSelector", "SRB136"),
@@ -296,8 +291,8 @@ def gs_utrancell():
         ("timeToTrigger1b", "-1"),
         ("transmissionScheme", "SINGLE_ANTENNA"),
         ("treSelection", "1"),
-        ("usedFreqThresh2dEcno", "-24"),
-        ("usedFreqThresh2dRscp", "-115"),
+        ("usedFreqThresh2dEcno", "SUFFIX"),
+        ("usedFreqThresh2dRscp", "SUFFIX"),
     ]
 
 
@@ -362,7 +357,7 @@ def gs_license():
     ]
 
 
-def gs_nodebsectorcarrier():
+def gs_nodebfunction():
     return [
         ("eul2msFirstSchedStep", "20"),
         ("eulLowRate", "32"),
@@ -371,6 +366,15 @@ def gs_nodebsectorcarrier():
         ("eulNonServHwRate", "128"),
         ("eulNoReschUsers", "5"),
         ("eulTargetRate", "128"),
+    ]
+
+
+def gs_nodebsectorcarrier():
+    return [
+        ("eulMaxOwnUuLoad", "80"),
+        ("eulMaxRotCoverage", "300"),
+        ("eulNoiseFloorLock", "-1040"),
+        ("eulThermalLevelPrior", "-1040"),
     ]
 
 

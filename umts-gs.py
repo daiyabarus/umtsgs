@@ -16,6 +16,14 @@ import enumlist
 import gslist
 from gscheck import gs_process
 from gseutran import gs_eutran_process
+from gsextgsm import gs_externalgsm_process
+from gsgsmrel import gs_gsmrel_process
+from gsiublink import gs_iublink_process
+from gslicense import gs_license_process
+from gsnodebfunction import gs_nodebfunction_process
+from gsnodeblocalcell import gs_nodeblocalcell_process
+from gsnodebsectorcarrier import gs_nodebsectorcarrier_process
+from gsutran import gs_utran_process
 
 
 def get_current_datetime():
@@ -40,7 +48,7 @@ def txtfile_to_list(txtpath: str) -> list:
 def main():
     source_folder = sys.argv[1]
     gs_result_all = []
-    header = [
+    header_utrancell = [
         "RNC",
         "UtranCellId",
         "ManagedObjectClass",
@@ -53,7 +61,8 @@ def main():
     # UtranCell
     utrancell_csv = os.path.join(source_folder, "UtranCell.csv")
     utrancell_data = txtfile_to_list(txtpath=utrancell_csv)
-    gsresult_utrancell = gs_process(
+    # gsresult_utrancell = gs_process(
+    gsresult_utrancell = gs_utran_process(
         txt_data=utrancell_data,
         gslist_data=gslist.gs_utrancell(),
         dt_col=enumlist.utrancell_col(),
@@ -127,10 +136,84 @@ def main():
     )
     gs_result_all.extend(gsresult_eutran)
 
+    externalgsmcell_csv = os.path.join(source_folder, "ExternalGsmCell.csv")
+    externalgsmcell_data = txtfile_to_list(txtpath=externalgsmcell_csv)
+    gsresult_externalgsmcell = gs_externalgsm_process(
+        txt_data=externalgsmcell_data,
+        gslist_data=gslist.gs_externalgsmcell(),
+        dt_col=enumlist.externalgsmcell_col(),
+        moc="ExternalGsmCell",
+    )
+    gs_result_all.extend(gsresult_externalgsmcell)
+
+    gsmrelation_csv = os.path.join(source_folder, "GsmRelation.csv")
+    gsmrelation_data = txtfile_to_list(txtpath=gsmrelation_csv)
+    gsresult_gsmrelation = gs_gsmrel_process(
+        txt_data=gsmrelation_data,
+        gslist_data=gslist.gs_gsmrelation(),
+        dt_col=enumlist.gsmrelation_col(),
+        moc="UtranCell=",
+    )
+    gs_result_all.extend(gsresult_gsmrelation)
+
+    license_csv = os.path.join(source_folder, "License.csv")
+    license_data = txtfile_to_list(txtpath=license_csv)
+    gsresult_license = gs_license_process(
+        txt_data=license_data,
+        gslist_data=gslist.gs_license(),
+        dt_col=enumlist.license_col(),
+        moc="SystemFunctions",
+    )
+    gs_result_all.extend(gsresult_license)
+
+    nodeblocalcell_csv = os.path.join(source_folder, "NodeBLocalCell.csv")
+    nodeblocalcell_data = txtfile_to_list(txtpath=nodeblocalcell_csv)
+    gsresult_nodeblocalcell = gs_nodeblocalcell_process(
+        txt_data=nodeblocalcell_data,
+        gslist_data=gslist.gs_nodeblocalcell(),
+        dt_col=enumlist.nodeblocalcell_col(),
+        moc="NodeBLocalCell",
+    )
+
+    gs_result_all.extend(gsresult_nodeblocalcell)
+
+    nodebsectorcarrier_csv = os.path.join(source_folder, "NodeBSectorCarrier.csv")
+    nodebsectorcarrier_data = txtfile_to_list(txtpath=nodebsectorcarrier_csv)
+    gsresult_nodebsectorcarrier = gs_nodebsectorcarrier_process(
+        txt_data=nodebsectorcarrier_data,
+        gslist_data=gslist.gs_nodebsectorcarrier(),
+        dt_col=enumlist.nodebsectorcarrier_col(),
+        moc="NodeBSectorCarrier",
+    )
+
+    gs_result_all.extend(gsresult_nodebsectorcarrier)
+
+    nodebfunction_csv = os.path.join(source_folder, "NodeBFunction.csv")
+    nodebfunction_data = txtfile_to_list(txtpath=nodebfunction_csv)
+    gsresult_nodebfunction = gs_nodebfunction_process(
+        txt_data=nodebfunction_data,
+        gslist_data=gslist.gs_nodebfunction(),
+        dt_col=enumlist.nodebfunction_col(),
+        moc="NodeBFunction",
+    )
+
+    gs_result_all.extend(gsresult_nodebfunction)
+
+    iublink_csv = os.path.join(source_folder, "IubLink.csv")
+    iublink_data = txtfile_to_list(txtpath=iublink_csv)
+    gsresult_iublink = gs_iublink_process(
+        txt_data=iublink_data,
+        gslist_data=gslist.gs_iublink(),
+        dt_col=enumlist.iublink_col(),
+        moc="",
+    )
+
+    gs_result_all.extend(gsresult_iublink)
+
     result_file = "gs_result_" + get_current_datetime() + ".csv"
     with open(result_file, "w", newline="") as f:
         write = csv.writer(f)
-        write.writerow(header)
+        write.writerow(header_utrancell)
         write.writerows(gs_result_all)
 
     print("GS Result save as: " + result_file)

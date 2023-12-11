@@ -98,7 +98,8 @@ command3 = (
     " pOffset1Fach, pOffset3Fach, sccpchOffset) -t"
 )
 command4 = (
-    "cmedit get *RNC*" " Pch.(administrativestate,pchPower,pichPower,sccpchOffset) -t"
+    "cmedit get *RNC*"
+    " Pch.(administrativestate,pchPower,pichPower,sccpchOffset) -t"
 )
 command5 = (
     "cmedit get *RNC* Eul.(administrativestate, edchTti2Support,"
@@ -111,11 +112,12 @@ command5 = (
 )
 command6 = (
     "cmedit get *RNC* Hsdsch.(administrativestate, codeThresholdPdu656,"
-    " cqiFeedbackCycle, deltaAck1, deltaAck2, deltaCqi1, deltaCqi2, deltaNack1,"
-    " deltaNack2, enhUeDrxSupport, enhancedL2Support, hsAqmCongCtrlSpiSupport,"
-    " hsAqmCongCtrlSupport, hsFachSupport, hsMeasurementPowerOffset,"
-    " initialAckNackRepetitionFactor, initialCqiRepetitionFactor,"
-    " numHsPdschCodes, numHsScchCodes, qam64MimoSupport, qam64Support) -t"
+    " cqiFeedbackCycle, deltaAck1, deltaAck2, deltaCqi1, deltaCqi2,"
+    " deltaNack1, deltaNack2, enhUeDrxSupport, enhancedL2Support,"
+    " hsAqmCongCtrlSpiSupport, hsAqmCongCtrlSupport, hsFachSupport,"
+    " hsMeasurementPowerOffset, initialAckNackRepetitionFactor,"
+    " initialCqiRepetitionFactor, numHsPdschCodes, numHsScchCodes,"
+    " qam64MimoSupport, qam64Support) -t"
 )
 # NOTE: update redirectionOrder
 command7 = (
@@ -123,7 +125,9 @@ command7 = (
     " qQualMin, threshHigh, threshHigh2, redirectionorder) -t"
 )
 command8 = (  # INFO: update start
-    "cmedit get " + nodeappend + " NodeBSectorCarrier.(cellRange, eulMaxOwnUuLoad,"
+    "cmedit get "
+    + nodeappend
+    + " NodeBSectorCarrier.(cellRange, eulMaxOwnUuLoad,"
     " eulMaxRotCoverage, eulThermalLevelPrior, eulNoiseFloorLock) -t"
 )
 command9 = "cmedit get " + nodeappend + " NodeBLocalCell.(*) -t"
@@ -165,13 +169,16 @@ command11 = (
 command12 = (
     "cmedit get *RNC* IubLink.(IubLinkId, rbsId, administrativeState, dlHwAdm,"
     " controlPlaneTransportOption, dlHwAdm, l2EstReqRetryTimeNbapC,"
-    " l2EstReqRetryTimeNbapD, reservedBy, ulHwAdm, userPlaneTransportOption) -t"
+    " l2EstReqRetryTimeNbapD, reservedBy, ulHwAdm,"
+    " userPlaneTransportOption) -t"
 )
 command13 = (
     "cmedit get *RNC* ExternalGsmCell.(bandIndicator,"
     " maxTxPowerUl,qRxLevMin, individualOffset, reservedBy) -t"
 )
-command14 = "cmedit get *RNC* GsmRelation.(qOffset1sn, mobilityRelationType) -t"
+command14 = (
+    "cmedit get *RNC* GsmRelation.(qOffset1sn, mobilityRelationType) -t"
+)
 
 output1 = OutputDir + "UtranCell.csv"
 output2 = OutputDir + "Rach.csv"
@@ -255,7 +262,9 @@ def split_anrIafUtranCellConfig(line):
 
 
 def split_anrIefUtranCellConfig(line):
-    match = re.search(r".*{anrEnabled=(\w+), sib11IefAnclEnabled=(\w+)}.*", line)
+    match = re.search(
+        r".*{anrEnabled=(\w+), sib11IefAnclEnabled=(\w+)}.*", line
+    )
     return match.groups() if match else ("", "")
 
 
@@ -269,7 +278,9 @@ def split_aseLoadThresholdUlSpeech(line):
 
 
 def split_hcsSib3Config(line):
-    match = re.search(r".*{sSearchHcs=(-?\d+), hcsPrio=(\d+), qHcs=(\d+)}.*", line)
+    match = re.search(
+        r".*{sSearchHcs=(-?\d+), hcsPrio=(\d+), qHcs=(\d+)}.*", line
+    )
     return match.groups() if match else ("", "", "")
 
 
@@ -279,7 +290,9 @@ def split_hcsUsage(line):
 
 
 def split_hsIflsDownswitchTrigg(line):
-    match = re.search(r".*{toFach=(\w+), fastDormancy=(\w+), toUra=(\w+)}.*", line)
+    match = re.search(
+        r".*{toFach=(\w+), fastDormancy=(\w+), toUra=(\w+)}.*", line
+    )
     return match.groups() if match else ("", "", "")
 
 
@@ -687,7 +700,7 @@ else:
     print(result9._result_lines)
 
 if result10.is_command_result_available():
-    filename = open(output8, "w")
+    filename = open(output10, "w")
     for line in result10.get_output():
         if "NodeId" in line:
             filename.write(line + "\n")
@@ -798,7 +811,8 @@ if result12.is_command_result_available():
                 )
                 .replace(
                     "userPlaneTransportOption",
-                    "userPlaneTransportOption.ipv4\t" "userPlaneTransportOption.atm",
+                    "userPlaneTransportOption.ipv4\t"
+                    "userPlaneTransportOption.atm",
                 )
                 .replace("reservedBy", "UtranCellId")
                 for col in header

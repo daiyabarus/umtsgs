@@ -1,4 +1,6 @@
-def gs_gsmrel(txt_data: list, gslist_data: list, dt_col: dict, moc: str):
+def gs_gsmrel_process(
+    txt_data: list, gslist_data: list, dt_col: dict, moc: str
+):
     gs_result = []
 
     for raw_data in txt_data:
@@ -28,7 +30,7 @@ def gs_gsmrel(txt_data: list, gslist_data: list, dt_col: dict, moc: str):
             gs_data = [
                 NodeId,
                 UtranCellId,
-                moc + "_" + GsmRelationId,
+                moc + UtranCellId + ",GsmRelation=" + GsmRelationId,
                 param,
                 oss_value,
                 baseline_value,
