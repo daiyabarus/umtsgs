@@ -28,8 +28,8 @@ def gs_nodebsectorcarrier_process(
 
             gs_data = [
                 NodeId,
-                NodeBSectorCarrier,
                 moc,
+                "NodeBSectorCarrier=" + NodeBSectorCarrier,
                 param,
                 oss_value,
                 baseline_value,

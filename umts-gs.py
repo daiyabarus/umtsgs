@@ -47,7 +47,8 @@ def txtfile_to_list(txtpath: str) -> list:
 
 def main():
     source_folder = sys.argv[1]
-    gs_result_all = []
+    gs_result_utrancell = []
+    gs_result_rbs = []
     header_utrancell = [
         "RNC",
         "UtranCellId",
@@ -58,6 +59,15 @@ def main():
         "Compliance",
     ]
 
+    header_rbs = [
+        "RBS",
+        "MO",
+        "ManagedObjectClass",
+        "Parameter",
+        "OssValue",
+        "BaselineValue",
+        "Compliance",
+    ]
     # UtranCell
     utrancell_csv = os.path.join(source_folder, "UtranCell.csv")
     utrancell_data = txtfile_to_list(txtpath=utrancell_csv)
@@ -68,7 +78,7 @@ def main():
         dt_col=enumlist.utrancell_col(),
         moc="UtranCell",
     )
-    gs_result_all.extend(gsresult_utrancell)
+    gs_result_utrancell.extend(gsresult_utrancell)
 
     # Rach
     rach_csv = os.path.join(source_folder, "Rach.csv")
@@ -79,7 +89,7 @@ def main():
         dt_col=enumlist.rach_col(),
         moc="Rach",
     )
-    gs_result_all.extend(gsresult_rach)
+    gs_result_utrancell.extend(gsresult_rach)
 
     # Fach
     fach_csv = os.path.join(source_folder, "Fach.csv")
@@ -90,7 +100,7 @@ def main():
         dt_col=enumlist.fach_col(),
         moc="Fach",
     )
-    gs_result_all.extend(gsresult_fach)
+    gs_result_utrancell.extend(gsresult_fach)
 
     # Pch
     pch_csv = os.path.join(source_folder, "Pch.csv")
@@ -101,7 +111,7 @@ def main():
         dt_col=enumlist.pch_col(),
         moc="Pch",
     )
-    gs_result_all.extend(gsresult_pch)
+    gs_result_utrancell.extend(gsresult_pch)
 
     # Eul
     eul_csv = os.path.join(source_folder, "Eul.csv")
@@ -112,7 +122,7 @@ def main():
         dt_col=enumlist.eul_col(),
         moc="Eul",
     )
-    gs_result_all.extend(gsresult_eul)
+    gs_result_utrancell.extend(gsresult_eul)
 
     # Hsdsch
     hsdsch_csv = os.path.join(source_folder, "Hsdsch.csv")
@@ -123,7 +133,7 @@ def main():
         dt_col=enumlist.hsdsch_col(),
         moc="Hsdsch",
     )
-    gs_result_all.extend(gsresult_hsdsch)
+    gs_result_utrancell.extend(gsresult_hsdsch)
 
     # EutranFreqRelation
     eutran_csv = os.path.join(source_folder, "EutranFreqRelation.csv")
@@ -134,7 +144,7 @@ def main():
         dt_col=enumlist.eutran_col(),
         moc="EutranFreqRelation",
     )
-    gs_result_all.extend(gsresult_eutran)
+    gs_result_utrancell.extend(gsresult_eutran)
 
     externalgsmcell_csv = os.path.join(source_folder, "ExternalGsmCell.csv")
     externalgsmcell_data = txtfile_to_list(txtpath=externalgsmcell_csv)
@@ -144,7 +154,7 @@ def main():
         dt_col=enumlist.externalgsmcell_col(),
         moc="ExternalGsmCell",
     )
-    gs_result_all.extend(gsresult_externalgsmcell)
+    gs_result_utrancell.extend(gsresult_externalgsmcell)
 
     gsmrelation_csv = os.path.join(source_folder, "GsmRelation.csv")
     gsmrelation_data = txtfile_to_list(txtpath=gsmrelation_csv)
@@ -154,7 +164,7 @@ def main():
         dt_col=enumlist.gsmrelation_col(),
         moc="UtranCell=",
     )
-    gs_result_all.extend(gsresult_gsmrelation)
+    gs_result_utrancell.extend(gsresult_gsmrelation)
 
     license_csv = os.path.join(source_folder, "License.csv")
     license_data = txtfile_to_list(txtpath=license_csv)
@@ -162,9 +172,9 @@ def main():
         txt_data=license_data,
         gslist_data=gslist.gs_license(),
         dt_col=enumlist.license_col(),
-        moc="SystemFunctions",
+        moc="FeatureState",
     )
-    gs_result_all.extend(gsresult_license)
+    gs_result_rbs.extend(gsresult_license)
 
     nodeblocalcell_csv = os.path.join(source_folder, "NodeBLocalCell.csv")
     nodeblocalcell_data = txtfile_to_list(txtpath=nodeblocalcell_csv)
@@ -175,9 +185,11 @@ def main():
         moc="NodeBLocalCell",
     )
 
-    gs_result_all.extend(gsresult_nodeblocalcell)
+    gs_result_rbs.extend(gsresult_nodeblocalcell)
 
-    nodebsectorcarrier_csv = os.path.join(source_folder, "NodeBSectorCarrier.csv")
+    nodebsectorcarrier_csv = os.path.join(
+        source_folder, "NodeBSectorCarrier.csv"
+    )
     nodebsectorcarrier_data = txtfile_to_list(txtpath=nodebsectorcarrier_csv)
     gsresult_nodebsectorcarrier = gs_nodebsectorcarrier_process(
         txt_data=nodebsectorcarrier_data,
@@ -186,7 +198,7 @@ def main():
         moc="NodeBSectorCarrier",
     )
 
-    gs_result_all.extend(gsresult_nodebsectorcarrier)
+    gs_result_rbs.extend(gsresult_nodebsectorcarrier)
 
     nodebfunction_csv = os.path.join(source_folder, "NodeBFunction.csv")
     nodebfunction_data = txtfile_to_list(txtpath=nodebfunction_csv)
@@ -197,7 +209,7 @@ def main():
         moc="NodeBFunction",
     )
 
-    gs_result_all.extend(gsresult_nodebfunction)
+    gs_result_rbs.extend(gsresult_nodebfunction)
 
     iublink_csv = os.path.join(source_folder, "IubLink.csv")
     iublink_data = txtfile_to_list(txtpath=iublink_csv)
@@ -208,15 +220,27 @@ def main():
         moc="",
     )
 
-    gs_result_all.extend(gsresult_iublink)
+    gs_result_utrancell.extend(gsresult_iublink)
 
-    result_file = "gs_result_" + get_current_datetime() + ".csv"
-    with open(result_file, "w", newline="") as f:
+    result_file_utrancell = os.path.join(
+        source_folder, "gs_result_utrancell_" + get_current_datetime() + ".csv"
+    )
+    with open(result_file_utrancell, "w", newline="") as f:
         write = csv.writer(f)
         write.writerow(header_utrancell)
-        write.writerows(gs_result_all)
+        write.writerows(gs_result_utrancell)
 
-    print("GS Result save as: " + result_file)
+    print("GS Result UtranCell save as: " + result_file_utrancell)
+
+    result_file_rbs = os.path.join(
+        source_folder, "gs_result_rbs_" + get_current_datetime() + ".csv"
+    )
+    with open(result_file_rbs, "w", newline="") as f:
+        write = csv.writer(f)
+        write.writerow(header_rbs)
+        write.writerows(gs_result_rbs)
+
+    print("GS Result RBS save as: " + result_file_rbs)
 
 
 if __name__ == "__main__":

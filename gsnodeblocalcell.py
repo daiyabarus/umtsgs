@@ -19,17 +19,24 @@ def gs_nodeblocalcell_process(
             if index_param == -1:
                 oss_value = "OSS_VALUE_NOT_FOUND"
             else:
-                oss_value = u_data[index_param]
+                oss_value = u_data[index_param].strip()  # Added strip()
 
-            if str(oss_value) == str(baseline_value):
+            # Debugging print statements
+            # print(
+            #     f"Param: {param}, OSS Value: {oss_value}, Baseline Value: {baseline_value}"
+            # )
+
+            if (
+                oss_value.upper() == baseline_value.upper()
+            ):  # Case-insensitive comparison
                 compliance = "MATCH"
             else:
                 compliance = "MISMATCH"
 
             gs_data = [
                 NodeId,
-                NodeBLocalCellId,
                 moc,
+                "NodeBLocalCell=" + NodeBLocalCellId,
                 param,
                 oss_value,
                 baseline_value,

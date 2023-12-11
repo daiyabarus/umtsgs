@@ -7,7 +7,7 @@ def gs_nodebfunction_process(
         if str(raw_data).strip() == "" or "NodeId" in str(raw_data):
             continue
 
-        u_data = str(raw_data).split()
+        u_data = str(raw_data).split("\t")
         NodeId = u_data[dt_col.get("NodeId", 0)]
         NodeB_function = u_data[dt_col.get("NodeBFunctionId", 1)]
 
@@ -28,8 +28,8 @@ def gs_nodebfunction_process(
 
             gs_data = [
                 NodeId,
-                "NodeBFunction=" + NodeB_function,
                 moc,
+                "NodeBFunction=" + NodeB_function,
                 param,
                 oss_value,
                 baseline_value,

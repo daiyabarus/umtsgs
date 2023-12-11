@@ -9,33 +9,25 @@ def gs_license_process(
 
         u_data = str(raw_data).split()
         NodeId = u_data[dt_col.get("NodeId", 0)]
-        NodeB_license = u_data[dt_col.get("SystemFunctionsId", 2)]
+        FeatureStateId = u_data[dt_col.get("FeatureStateId", 3)]
+        LicenseState = u_data[dt_col.get("featureState", 4)]
 
         for gs_data in gslist_data:
-            param = gs_data[0]
-            baseline_value = gs_data[1]
+            gs_id, gs_status = gs_data
 
-            index_param = dt_col.get(param, -1)
-            if index_param == -1:
-                oss_value = "OSS_VALUE_NOT_FOUND"
-            else:
-                oss_value = u_data[index_param]
-
-            if str(oss_value) == str(baseline_value):
-                compliance = "MATCH"
-            else:
-                compliance = "MISMATCH"
-
-            gs_data = [
-                NodeId,
-                "SystemFunctions=" + NodeB_license,
-                moc,
-                param,
-                oss_value,
-                baseline_value,
-                compliance,
-            ]
-
-            gs_result.append(gs_data)
+            if FeatureStateId == gs_id:
+                compliance = (
+                    "MATCH" if LicenseState == gs_status else "MISMATCH"
+                )
+                gs_data = [
+                    NodeId,
+                    moc,
+                    "FeatureState=" + FeatureStateId,
+                    gs_id,
+                    LicenseState,
+                    gs_status,
+                    compliance,
+                ]
+                gs_result.append(gs_data)
 
     return gs_result

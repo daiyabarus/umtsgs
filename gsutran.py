@@ -18,130 +18,102 @@ def gs_utran_process(
 
             if baseline_value == "SUFFIX":
                 if param == "loadSharingMargin":
-                    if "1007" in uarfcnDl:
+                    if (
+                        "1007" in uarfcnDl
+                        or "1012" in uarfcnDl
+                        or "1037" in uarfcnDl
+                        or "4358" in uarfcnDl
+                        or "4381" in uarfcnDl
+                        or "4383" in uarfcnDl
+                        or "4387" in uarfcnDl
+                    ):
                         baseline_value = "20"
-                    elif "1012" in uarfcnDl:
-                        baseline_value = "20"
-                    elif "1037" in uarfcnDl:
-                        baseline_value = "20"
-                    elif "4358" in uarfcnDl:
-                        baseline_value = "20"
-                    elif "4381" in uarfcnDl:
-                        baseline_value = "20"
-                    elif "4383" in uarfcnDl:
-                        baseline_value = "20"
-                    elif "4387" in uarfcnDl:
-                        baseline_value = "20"
-                else:
-                    baseline_value = "0"
+                    else:
+                        baseline_value = "0"
 
-                if param == "qRxLevMin":
-                    if "1007" in uarfcnDl:
+                elif param == "qRxLevMin":
+                    if (
+                        "1007" in uarfcnDl
+                        or "1012" in uarfcnDl
+                        or "1037" in uarfcnDl
+                        or "4358" in uarfcnDl
+                        or "4381" in uarfcnDl
+                        or "4383" in uarfcnDl
+                        or "4387" in uarfcnDl
+                    ):
                         baseline_value = "-115"
-                    elif "1012" in uarfcnDl:
-                        baseline_value = "-115"
-                    elif "1037" in uarfcnDl:
-                        baseline_value = "-115"
-                    elif "4358" in uarfcnDl:
-                        baseline_value = "-115"
-                    elif "4381" in uarfcnDl:
-                        baseline_value = "-115"
-                    elif "4383" in uarfcnDl:
-                        baseline_value = "-115"
-                    elif "4387" in uarfcnDl:
-                        baseline_value = "-115"
-                else:
-                    baseline_value = "-105"
+                    else:
+                        baseline_value = "-105"
 
-                if param == "qHyst1":
-                    if "1007" in uarfcnDl:
+                elif param == "qHyst1":
+                    if (
+                        "1007" in uarfcnDl
+                        or "1012" in uarfcnDl
+                        or "1037" in uarfcnDl
+                        or "4358" in uarfcnDl
+                        or "4381" in uarfcnDl
+                        or "4383" in uarfcnDl
+                        or "4387" in uarfcnDl
+                    ):
                         baseline_value = "8"
-                    elif "1012" in uarfcnDl:
-                        baseline_value = "8"
-                    elif "1037" in uarfcnDl:
-                        baseline_value = "8"
-                    elif "4358" in uarfcnDl:
-                        baseline_value = "8"
-                    elif "4381" in uarfcnDl:
-                        baseline_value = "8"
-                    elif "4383" in uarfcnDl:
-                        baseline_value = "8"
-                    elif "4387" in uarfcnDl:
-                        baseline_value = "8"
-                else:
-                    baseline_value = "4"
+                    else:
+                        baseline_value = "4"
 
-                if param == "qualMeasQuantity":
-                    if "1007" in uarfcnDl:
+                elif param == "qualMeasQuantity":
+                    if (
+                        "1007" in uarfcnDl
+                        or "1012" in uarfcnDl
+                        or "1037" in uarfcnDl
+                        or "4358" in uarfcnDl
+                        or "4381" in uarfcnDl
+                        or "4383" in uarfcnDl
+                        or "4387" in uarfcnDl
+                    ):
                         baseline_value = "CPICH_EC_NO"
-                    elif "1012" in uarfcnDl:
-                        baseline_value = "CPICH_EC_NO"
-                    elif "1037" in uarfcnDl:
-                        baseline_value = "CPICH_EC_NO"
-                    elif "4358" in uarfcnDl:
-                        baseline_value = "CPICH_EC_NO"
-                    elif "4381" in uarfcnDl:
-                        baseline_value = "CPICH_EC_NO"
-                    elif "4383" in uarfcnDl:
-                        baseline_value = "CPICH_EC_NO"
-                    elif "4387" in uarfcnDl:
-                        baseline_value = "CPICH_EC_NO"
-                else:
-                    baseline_value = "RSCP"
+                    else:
+                        baseline_value = "RSCP"
 
-                if param == "sInterSearch":
-                    if "1007" in uarfcnDl:
+                elif param == "sInterSearch":
+                    if (
+                        "1007" in uarfcnDl
+                        or "1012" in uarfcnDl
+                        or "1037" in uarfcnDl
+                        or "4358" in uarfcnDl
+                        or "4381" in uarfcnDl
+                        or "4383" in uarfcnDl
+                        or "4387" in uarfcnDl
+                    ):
                         baseline_value = "17"
-                    elif "1012" in uarfcnDl:
-                        baseline_value = "17"
-                    elif "1037" in uarfcnDl:
-                        baseline_value = "17"
-                    elif "4358" in uarfcnDl:
-                        baseline_value = "17"
-                    elif "4381" in uarfcnDl:
-                        baseline_value = "17"
-                    elif "4383" in uarfcnDl:
-                        baseline_value = "17"
-                    elif "4387" in uarfcnDl:
-                        baseline_value = "17"
-                else:
-                    baseline_value = "0"
+                    else:
+                        baseline_value = "0"
 
-                if param == "usedFreqThresh2dEcno":
-                    if "1007" in uarfcnDl:
+                elif param == "usedFreqThresh2dEcno":
+                    if (
+                        "1007" in uarfcnDl
+                        or "1012" in uarfcnDl
+                        or "1037" in uarfcnDl
+                        or "4358" in uarfcnDl
+                        or "4381" in uarfcnDl
+                        or "4383" in uarfcnDl
+                        or "4387" in uarfcnDl
+                    ):
                         baseline_value = "-24"
-                    elif "1012" in uarfcnDl:
-                        baseline_value = "-24"
-                    elif "1037" in uarfcnDl:
-                        baseline_value = "-24"
-                    elif "4358" in uarfcnDl:
-                        baseline_value = "-24"
-                    elif "4381" in uarfcnDl:
-                        baseline_value = "-24"
-                    elif "4383" in uarfcnDl:
-                        baseline_value = "-24"
-                    elif "4387" in uarfcnDl:
-                        baseline_value = "-24"
-                else:
-                    baseline_value = "-20"
+                    else:
+                        baseline_value = "-20"
 
-                if param == "usedFreqThresh2dRscp":
-                    if "1007" in uarfcnDl:
+                elif param == "usedFreqThresh2dRscp":
+                    if (
+                        "1007" in uarfcnDl
+                        or "1012" in uarfcnDl
+                        or "1037" in uarfcnDl
+                        or "4358" in uarfcnDl
+                        or "4381" in uarfcnDl
+                        or "4383" in uarfcnDl
+                        or "4387" in uarfcnDl
+                    ):
                         baseline_value = "-115"
-                    elif "1012" in uarfcnDl:
-                        baseline_value = "-115"
-                    elif "1037" in uarfcnDl:
-                        baseline_value = "-115"
-                    elif "4358" in uarfcnDl:
-                        baseline_value = "-115"
-                    elif "4381" in uarfcnDl:
-                        baseline_value = "-115"
-                    elif "4383" in uarfcnDl:
-                        baseline_value = "-115"
-                    elif "4387" in uarfcnDl:
-                        baseline_value = "-115"
-                else:
-                    baseline_value = "-95"
+                    else:
+                        baseline_value = "-95"
 
             index_param = dt_col.get(param, -1)
             if index_param == -1:

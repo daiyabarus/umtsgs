@@ -81,8 +81,10 @@ target/
 # IPython
 profile_default/
 ipython_config.py
-ENM2_UMTS_AUDIT_061223/
-ENM3_UMTS_AUDIT_061223/
+
+ENM*
+gs_result*
+.gitignore
 # pyenv
 #   For a library or package, you might want to ignore these files since the code is
 #   intended to run in multiple environments; otherwise, check them in:

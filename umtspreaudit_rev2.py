@@ -402,11 +402,11 @@ if result1.is_command_result_available():
             header = [
                 col.replace(
                     "absPrioCellRes",
-                    "absPrioCellRes.sPrioritySearch1\t"
-                    "absPrioCellRes.measIndFach\t"
-                    "absPrioCellRes.sPrioritySearch2\t"
-                    "absPrioCellRes.threshServingLow\t"
-                    "absPrioCellRes.cellReselectionPriority",
+                    "absPrioCellRes_sPrioritySearch1\t"
+                    "absPrioCellRes_measIndFach\t"
+                    "absPrioCellRes_sPrioritySearch2\t"
+                    "absPrioCellRes_threshServingLow\t"
+                    "absPrioCellRes_cellReselectionPriority",
                 )
                 .replace(
                     "accessClassesBarredCs",
@@ -467,72 +467,72 @@ if result1.is_command_result_available():
                 )
                 .replace(
                     "admBlockRedirection",
-                    "admBlockRedirection.gsmRrc\t"
-                    "admBlockRedirection.speech\t"
-                    "admBlockRedirection.rrc",
+                    "admBlockRedirection_gsmRrc\t"
+                    "admBlockRedirection_speech\t"
+                    "admBlockRedirection_rrc",
                 )
                 .replace(
                     "anrIafUtranCellConfig",
-                    "anrIafUtranCellConfig.sib11IafAnclEnabled\t"
-                    "anrIafUtranCellConfig.relationRemoveEnabled\t"
-                    "anrIafUtranCellConfig.relationAddEnabled\t"
-                    "anrIafUtranCellConfig.anrEnabled",
+                    "anrIafUtranCellConfig_sib11IafAnclEnabled\t"
+                    "anrIafUtranCellConfig_relationRemoveEnabled\t"
+                    "anrIafUtranCellConfig_relationAddEnabled\t"
+                    "anrIafUtranCellConfig_anrEnabled",
                 )
                 .replace(
                     "anrIefUtranCellConfig",
-                    "anrIefUtranCellConfig.anrEnabled\t"
-                    "anrIefUtranCellConfig.sib11IefAnclEnabled",
+                    "anrIefUtranCellConfig_anrEnabled\t"
+                    "anrIefUtranCellConfig_sib11IefAnclEnabled",
                 )
                 .replace(
                     "aseLoadThresholdUlSpeech",
-                    "aseLoadThresholdUlSpeech.amr12200\t"
-                    "aseLoadThresholdUlSpeech.amrWb8850\t"
-                    "aseLoadThresholdUlSpeech.amr5900\t"
-                    "aseLoadThresholdUlSpeech.amr7950\t"
-                    "aseLoadThresholdUlSpeech.amrWb12650",
+                    "aseLoadThresholdUlSpeech_amr12200\t"
+                    "aseLoadThresholdUlSpeech_amrWb8850\t"
+                    "aseLoadThresholdUlSpeech_amr5900\t"
+                    "aseLoadThresholdUlSpeech_amr7950\t"
+                    "aseLoadThresholdUlSpeech_amrWb12650",
                 )
                 .replace(
                     "hcsSib3Config",
-                    "hcsSib3Config.sSearchHcs\t"
-                    "hcsSib3Config.hcsPrio\t"
-                    "hcsSib3Config.qHcs",
+                    "hcsSib3Config_sSearchHcs\t"
+                    "hcsSib3Config_hcsPrio\t"
+                    "hcsSib3Config_qHcs",
                 )
                 .replace(
                     "hcsUsage",
-                    "hcsUsage.idleMode\thcsUsage.connectedMode",
+                    "hcsUsage_idleMode\thcsUsage_connectedMode",
                 )
                 .replace(
                     "hsIflsDownswitchTrigg",
-                    "hsIflsDownswitchTrigg.toFach\t"
-                    "hsIflsDownswitchTrigg.fastDormancy\t"
-                    "hsIflsDownswitchTrigg.toUra",
+                    "hsIflsDownswitchTrigg_toFach\t"
+                    "hsIflsDownswitchTrigg_fastDormancy\t"
+                    "hsIflsDownswitchTrigg_toUra",
                 )
                 .replace(
                     "hsIflsTrigger",
-                    "hsIflsTrigger.fromUra\thsIflsTrigger.fromFach",
+                    "hsIflsTrigger_fromUra\thsIflsTrigger_fromFach",
                 )
                 .replace(
                     "pwrLoadThresholdDlSpeech",
-                    "pwrLoadThresholdDlSpeech.amr12200\t"
-                    "pwrLoadThresholdDlSpeech.amrWb8850\t"
-                    "pwrLoadThresholdDlSpeech.amr5900\t"
-                    "pwrLoadThresholdDlSpeech.amr7950\t"
-                    "pwrLoadThresholdDlSpeech.amrWb12650",
+                    "pwrLoadThresholdDlSpeech_amr12200\t"
+                    "pwrLoadThresholdDlSpeech_amrWb8850\t"
+                    "pwrLoadThresholdDlSpeech_amr5900\t"
+                    "pwrLoadThresholdDlSpeech_amr7950\t"
+                    "pwrLoadThresholdDlSpeech_amrWb12650",
                 )
                 .replace(
                     "rateSelectionPsInteractive",
-                    "rateSelectionPsInteractive.dlPrefRate\t"
-                    "rateSelectionPsInteractive.channelType\t"
-                    "rateSelectionPsInteractive.ulPrefRate",
+                    "rateSelectionPsInteractive_dlPrefRate\t"
+                    "rateSelectionPsInteractive_channelType\t"
+                    "rateSelectionPsInteractive_ulPrefRate",
                 )
                 .replace(
                     "releaseRedirectEutraTriggers",
-                    "releaseRedirectEutraTriggers.dchToFach\t"
-                    "releaseRedirectEutraTriggers.csFallbackDchToFach\t"
-                    "releaseRedirectEutraTriggers.fachToUra\t"
-                    "releaseRedirectEutraTriggers.fastDormancy\t"
-                    "releaseRedirectEutraTriggers.csFallbackCsRelease\t"
-                    "releaseRedirectEutraTriggers.normalRelease",
+                    "releaseRedirectEutraTriggers_dchToFach\t"
+                    "releaseRedirectEutraTriggers_csFallbackDchToFach\t"
+                    "releaseRedirectEutraTriggers_fachToUra\t"
+                    "releaseRedirectEutraTriggers_fastDormancy\t"
+                    "releaseRedirectEutraTriggers_csFallbackCsRelease\t"
+                    "releaseRedirectEutraTriggers_normalRelease",
                 )
                 for col in header
             ]
@@ -559,6 +559,7 @@ if result2.is_command_result_available():
                     .replace("]", "")
                     .replace("{", "")
                     .replace("}", "")
+                    .replace(", ", ",")
                     + "\n"
                 )
     filename.close()
@@ -578,6 +579,7 @@ if result3.is_command_result_available():
                     .replace("]", "")
                     .replace("{", "")
                     .replace("}", "")
+                    .replace(", ", ",")
                     + "\n"
                 )
     filename.close()
@@ -597,6 +599,7 @@ if result4.is_command_result_available():
                     .replace("]", "")
                     .replace("{", "")
                     .replace("}", "")
+                    .replace(", ", ",")
                     + "\n"
                 )
     filename.close()
@@ -616,6 +619,7 @@ if result5.is_command_result_available():
                     .replace("]", "")
                     .replace("{", "")
                     .replace("}", "")
+                    .replace(", ", ",")
                     + "\n"
                 )
     filename.close()
@@ -635,6 +639,7 @@ if result6.is_command_result_available():
                     .replace("]", "")
                     .replace("{", "")
                     .replace("}", "")
+                    .replace(", ", ",")
                     + "\n"
                 )
     filename.close()
@@ -654,6 +659,7 @@ if result7.is_command_result_available():
                     .replace("]", "")
                     .replace("{", "")
                     .replace("}", "")
+                    .replace(", ", ",")
                     + "\n"
                 )
     filename.close()
@@ -673,6 +679,7 @@ if result8.is_command_result_available():
                     .replace("]", "")
                     .replace("{", "")
                     .replace("}", "")
+                    .replace(", ", ",")
                     + "\n"
                 )
     filename.close()
@@ -692,6 +699,7 @@ if result9.is_command_result_available():
                     .replace("]", "")
                     .replace("{", "")
                     .replace("}", "")
+                    .replace(", ", ",")
                     + "\n"
                 )
     filename.close()
@@ -711,6 +719,7 @@ if result10.is_command_result_available():
                     .replace("]", "")
                     .replace("{", "")
                     .replace("}", "")
+                    .replace(", ", ",")
                     + "\n"
                 )
     filename.close()
@@ -730,6 +739,7 @@ if result11.is_command_result_available():
                     .replace("]", "")
                     .replace("{", "")
                     .replace("}", "")
+                    .replace(", ", ",")
                     + "\n"
                 )
     filename.close()
@@ -749,6 +759,7 @@ if result12.is_command_result_available():
                     .replace("]", "")
                     .replace("{", "")
                     .replace("}", "")
+                    .replace(", ", ",")
                     + "\n"
                 )
     filename.close()
@@ -806,13 +817,13 @@ if result12.is_command_result_available():
             header = [
                 col.replace(
                     "controlPlaneTransportOption",
-                    "controlPlaneTransportOption.ipv4\t"
-                    "controlPlaneTransportOption.atm",
+                    "controlPlaneTransportOption_ipv4\t"
+                    "controlPlaneTransportOption_atm",
                 )
                 .replace(
                     "userPlaneTransportOption",
-                    "userPlaneTransportOption.ipv4\t"
-                    "userPlaneTransportOption.atm",
+                    "userPlaneTransportOption_ipv4\t"
+                    "userPlaneTransportOption_atm",
                 )
                 .replace("reservedBy", "UtranCellId")
                 for col in header
@@ -872,6 +883,7 @@ if result14.is_command_result_available():
                     .replace("]", "")
                     .replace("{", "")
                     .replace("}", "")
+                    .replace(", ", ",")
                     + "\n"
                 )
     filename.close()
