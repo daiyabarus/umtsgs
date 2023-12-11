@@ -7,7 +7,8 @@ def gs_utran_process(
         if str(raw_data).strip() == "" or "NodeId" in str(raw_data):
             continue
 
-        u_data = str(raw_data).split()
+        u_data = str(raw_data).split("\t")
+        print(f"Processing line: {u_data}")
         NodeId = u_data[dt_col.get("NodeId", 0)]
         UtranCellId = u_data[dt_col.get("UtranCellId", 2)]
         uarfcnDl = u_data[dt_col.get("uarfcnDl", 195)]
@@ -116,7 +117,11 @@ def gs_utran_process(
                         baseline_value = "-95"
 
             index_param = dt_col.get(param, -1)
-            if index_param == -1:
+            if index_param == -1 or index_param >= len(u_data):
+                print(
+                    f"Warning: Parameter '{param}' not found or index out of"
+                    f" range in line: {u_data}"
+                )  # Error message
                 oss_value = "OSS_VALUE_NOT_FOUND"
             else:
                 oss_value = u_data[index_param]

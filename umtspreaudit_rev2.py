@@ -17,7 +17,7 @@ basePath = sys.path[0]
 homedir = os.path.expanduser("~")
 OutputDir = (
     homedir
-    + "/umts-gs-oss-ver_1/"
+    + "/umtsgs/"
     + myOSS.upper().rstrip().replace("DNS", "")
     + "_UMTS_AUDIT_"
     + time.strftime("%d%m%y")

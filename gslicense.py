@@ -7,7 +7,7 @@ def gs_license_process(
         if str(raw_data).strip() == "" or "NodeId" in str(raw_data):
             continue
 
-        u_data = str(raw_data).split()
+        u_data = str(raw_data).split("\t")
         NodeId = u_data[dt_col.get("NodeId", 0)]
         FeatureStateId = u_data[dt_col.get("FeatureStateId", 3)]
         LicenseState = u_data[dt_col.get("featureState", 4)]

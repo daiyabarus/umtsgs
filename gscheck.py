@@ -5,7 +5,7 @@ def gs_process(txt_data: list, gslist_data: list, dt_col: dict, moc: str):
         if str(raw_data).strip() == "" or "NodeId" in str(raw_data):
             continue
 
-        u_data = str(raw_data).split()
+        u_data = str(raw_data).split("\t")
         NodeId = u_data[dt_col.get("NodeId", 0)]
         UtranCellId = u_data[dt_col.get("UtranCellId", 2)]
 

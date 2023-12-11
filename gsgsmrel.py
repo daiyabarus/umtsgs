@@ -7,7 +7,7 @@ def gs_gsmrel_process(
         if str(raw_data).strip() == "" or "NodeId" in str(raw_data):
             continue
 
-        u_data = str(raw_data).split()
+        u_data = str(raw_data).split("\t")
         NodeId = u_data[dt_col.get("NodeId", 0)]
         UtranCellId = u_data[dt_col.get("UtranCellId", 2)]
         GsmRelationId = u_data[dt_col.get("GsmRelationId", 3)]

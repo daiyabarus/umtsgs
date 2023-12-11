@@ -7,7 +7,7 @@ def gs_nodebsectorcarrier_process(
         if str(raw_data).strip() == "" or "NodeId" in str(raw_data):
             continue
 
-        u_data = str(raw_data).split()
+        u_data = str(raw_data).split("\t")
         NodeId = u_data[dt_col.get("NodeId", 0)]
         NodeBSectorCarrier = u_data[dt_col.get("NodeBSectorCarrierId", 4)]
 
