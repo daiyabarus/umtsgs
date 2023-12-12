@@ -264,8 +264,8 @@ def gs_utrancell():
         ("releaseRedirectEutraTriggers_csFallbackCsRelease", "ON"),
         ("releaseRedirectEutraTriggers_normalRelease", "ON"),
         ("releaseRedirectHsIfls", "OFF"),
-        ("reportingRange1a", "0"),
-        ("reportingRange1b", "0"),
+        ("reportingRange1a", "6"),  # TODO: need confirm
+        ("reportingRange1b", "14"),  # TODO: need confirm
         ("rlFailureT", "10"),
         ("rrcLcEnabled", "TRUE"),
         ("rwrEutraCc", "OFF"),
@@ -287,8 +287,8 @@ def gs_utrancell():
         ("sIntraSearch", "0"),
         ("sRatSearch", "0"),
         ("standAloneSrbSelector", "SRB136"),
-        ("timeToTrigger1a", "-1"),
-        ("timeToTrigger1b", "-1"),
+        ("timeToTrigger1a", "7"),  # TODO: Need confirm
+        ("timeToTrigger1b", "12"),  # TODO: Need Confirm
         ("transmissionScheme", "SINGLE_ANTENNA"),
         ("treSelection", "1"),
         ("usedFreqThresh2dEcno", "SUFFIX"),

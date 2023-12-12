@@ -310,11 +310,25 @@ def split_pwrLoadThresholdDlSpeech(line):
     return match.groups() if match else ("", "", "", "", "")
 
 
+# def split_rateSelectionPsInteractive(line):
+#     match = re.search(
+#         r".*{dlPrefRate=(\d+), channelType=(\w+), ulPrefRate=(\d+)}.*", line
+#     )
+#     return match.groups() if match else ("", "", "")
+
+
 def split_rateSelectionPsInteractive(line):
-    match = re.search(
-        r".*{dlPrefRate=(\d+), channelType=(\w+), ulPrefRate=(\d+)}.*", line
-    )
-    return match.groups() if match else ("", "", "")
+    # Regular expressions for each key
+    dl_rate_match = re.search(r"dlPrefRate=(\d+)", line)
+    channel_type_match = re.search(r"channelType=(\w+)", line)
+    ul_rate_match = re.search(r"ulPrefRate=(\d+)", line)
+
+    # Extract values if matches are found
+    dl_rate = dl_rate_match.group(1) if dl_rate_match else ""
+    channel_type = channel_type_match.group(1) if channel_type_match else ""
+    ul_rate = ul_rate_match.group(1) if ul_rate_match else ""
+
+    return dl_rate, channel_type, ul_rate
 
 
 def split_releaseRedirectEutraTriggers(line):
