@@ -97,7 +97,7 @@ def gs_rach():
     ]
 
 
-# INFO: update
+# INFO: update 20231222 SUFFIX
 def gs_utrancell():
     return [
         ("absPrioCellRes_sPrioritySearch1", "16"),
@@ -257,15 +257,27 @@ def gs_utrancell():
         ("rateSelectionPsInteractive_channelType", "DCH"),
         ("rateSelectionPsInteractive_ulPrefRate", "16"),
         ("releaseRedirect", "EUTRA"),
-        ("releaseRedirectEutraTriggers_dchToFach", "ON"),
+        (
+            "releaseRedirectEutraTriggers_dchToFach",
+            "SUFFIX",
+        ),  # INFO: Update 20231222
         ("releaseRedirectEutraTriggers_csFallbackDchToFach", "ON"),
-        ("releaseRedirectEutraTriggers_fachToUra", "ON"),
-        ("releaseRedirectEutraTriggers_fastDormancy", "OFF"),
+        (
+            "releaseRedirectEutraTriggers_fachToUra",
+            "SUFFIX",
+        ),  # INFO: Update 20231222
+        (
+            "releaseRedirectEutraTriggers_fastDormancy",
+            "SUFFIX",
+        ),  # INFO: Update 20231222
         ("releaseRedirectEutraTriggers_csFallbackCsRelease", "ON"),
-        ("releaseRedirectEutraTriggers_normalRelease", "ON"),
+        (
+            "releaseRedirectEutraTriggers_normalRelease",
+            "SUFFIX",
+        ),  # INFO: Update 20231222
         ("releaseRedirectHsIfls", "OFF"),
-        ("reportingRange1a", "6"),  # TODO: need confirm
-        ("reportingRange1b", "14"),  # TODO: need confirm
+        ("reportingRange1a", "0"),  # INFO: Update 20231222
+        ("reportingRange1b", "0"),  # INFO: Update 20231222
         ("rlFailureT", "10"),
         ("rrcLcEnabled", "TRUE"),
         ("rwrEutraCc", "OFF"),
@@ -287,8 +299,8 @@ def gs_utrancell():
         ("sIntraSearch", "0"),
         ("sRatSearch", "0"),
         ("standAloneSrbSelector", "SRB136"),
-        ("timeToTrigger1a", "7"),  # TODO: Need confirm
-        ("timeToTrigger1b", "12"),  # TODO: Need Confirm
+        ("timeToTrigger1a", "-1"),  # INFO: update 20231222
+        ("timeToTrigger1b", "-1"),  # INFO: update 20231222
         ("transmissionScheme", "SINGLE_ANTENNA"),
         ("treSelection", "1"),
         ("usedFreqThresh2dEcno", "SUFFIX"),

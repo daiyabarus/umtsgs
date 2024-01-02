@@ -36,6 +36,8 @@ def gs_eutran_process(
                         baseline_value = "-18"
                     elif "LTE2350" in EutranFreqRelationId:
                         baseline_value = "-18"
+                    elif "LTE675" in EutranFreqRelationId:
+                        baseline_value = "-18"
                 elif param == "qRxLevMin":
                     if "LTE1075" in EutranFreqRelationId:
                         baseline_value = "-110"
@@ -55,6 +57,8 @@ def gs_eutran_process(
                         baseline_value = "-116"
                     elif "LTE2350" in EutranFreqRelationId:
                         baseline_value = "-118"
+                    elif "LTE675" in EutranFreqRelationId:
+                        baseline_value = "-110"
                 elif param == "cellReselectionPriority":
                     if "LTE1075" in EutranFreqRelationId:
                         baseline_value = "5"
@@ -74,6 +78,9 @@ def gs_eutran_process(
                         baseline_value = "2"
                     elif "LTE2350" in EutranFreqRelationId:
                         baseline_value = "6"
+                    elif "LTE675" in EutranFreqRelationId:
+                        baseline_value = "5"
+
             index_param = dt_col.get(param, -1)
             if index_param == -1:
                 oss_value = "OSS_VALUE_NOT_FOUND"

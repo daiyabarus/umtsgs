@@ -116,6 +116,46 @@ def gs_utran_process(
                     else:
                         baseline_value = "-95"
 
+                elif param == "releaseRedirectEutraTriggers_dchToFach":
+                    if (
+                        "TO5RNC1" in NodeId
+                        or "BR1RNC1" in NodeId
+                        or "WI1RNC1" in NodeId
+                    ):
+                        baseline_value = "ON"
+                    else:
+                        baseline_value = "OFF"
+
+                elif param == "releaseRedirectEutraTriggers_fachToUra":
+                    if (
+                        "TO5RNC1" in NodeId
+                        or "BR1RNC1" in NodeId
+                        or "WI1RNC1" in NodeId
+                    ):
+                        baseline_value = "ON"
+                    else:
+                        baseline_value = "OFF"
+
+                elif param == "releaseRedirectEutraTriggers_fastDormancy":
+                    if (
+                        "TO5RNC1" in NodeId
+                        or "BR1RNC1" in NodeId
+                        or "WI1RNC1" in NodeId
+                    ):
+                        baseline_value = "ON"
+                    else:
+                        baseline_value = "OFF"
+
+                elif param == "releaseRedirectEutraTriggers_normalRelease":
+                    if (
+                        "TO5RNC1" in NodeId
+                        or "BR1RNC1" in NodeId
+                        or "WI1RNC1" in NodeId
+                    ):
+                        baseline_value = "ON"
+                    else:
+                        baseline_value = "OFF"
+
             index_param = dt_col.get(param, -1)
             if index_param == -1 or index_param >= len(u_data):
                 print(
